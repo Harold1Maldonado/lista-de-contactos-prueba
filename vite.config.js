@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/lista-de-contactos-prueba/"
+  base: '/lista-de-contactos-prueba/'
 });
 
