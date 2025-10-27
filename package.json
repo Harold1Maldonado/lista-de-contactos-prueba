@@ -1,5 +1,6 @@
 {
-  "name": "lista-de-contactos-6",
+  "name": "lista-de-contactos-prueba",
+  "homepage": "https://harold1maldonado.github.io/lista-de-contactos-prueba/",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -7,10 +8,11 @@
     "dev": "vite",
     "start": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "boostrap": "^2.0.0",
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -18,6 +20,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
+    "gh-pages": "^6.3.0",
     "vite": "^5.4.8"
   }
 }

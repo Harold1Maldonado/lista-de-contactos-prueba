@@ -14,9 +14,9 @@ const ContactCard = ({ contact }) => {
     <div className="card shadow-sm">
       <div className="card-body">
         <h5 className="card-title">{contact.name}</h5>
-        <p className="card-text">📧 {contact.email}</p>
-        <p className="card-text">📞 {contact.phone}</p>
-        {contact.address && <p className="card-text">🏠 {contact.address}</p>}
+        <p className="card-text">{contact.email}</p>
+        <p className="card-text">{contact.phone}</p>
+        {contact.address && <p className="card-text">{contact.address}</p>}
         <div className="d-flex justify-content-between">
           <Link to={`/edit/${contact.id}`}>
             <button className="btn btn-warning btn-sm">Editar</button>

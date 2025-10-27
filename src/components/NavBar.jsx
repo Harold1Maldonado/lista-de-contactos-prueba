@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useGlobalReducer } from "../hooks/useGlobalReducer";
+import "./NavBar.css";
 
 const NavBar = () => {
   const { state, actions } = useGlobalReducer();
@@ -21,7 +22,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary px-4 mb-4">
+    <nav className="navbar navbar-expand-lg px-4 mb-4">
       <span className="navbar-brand fw-bold">Lista de Contactos</span>
       <div className="d-flex ms-auto align-items-center">
         <select
