@@ -1,0 +1,23 @@
+.footer {
+  background-color: #2f81d4;
+  font-size: 0.95rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer p {
+  margin: 0;
+  color: #f8f9fa;
+}
+
+.footer button {
+  border: solid 1px red;
+}
+
+.footer a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
