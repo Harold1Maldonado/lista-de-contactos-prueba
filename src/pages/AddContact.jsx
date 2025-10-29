@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGlobalReducer } from "../hooks/useGlobalReducer";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar"; 
 
 const AddContact = () => {
   const { id } = useParams();
@@ -27,57 +28,78 @@ const AddContact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!state.selectedSlug) {
+      alert("Por favor selecciona una agenda antes de crear un contacto.");
+      return;
+    }
+
     if (id) await actions.updateContact(id, form);
     else await actions.createContact(state.selectedSlug, form);
+
     await actions.getSingleAgenda(state.selectedSlug);
     navigate("/");
   };
 
   return (
-    <div className="container my-4">
-      <h2 className="text-center mb-3">
-        {id ? "Editar Contacto" : "Agregar Contacto"}
-      </h2>
-      <form
-        onSubmit={handleSubmit}
-        className="mx-auto"
-        style={{ maxWidth: "400px" }}
-      >
-        <input
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          className="form-control mb-2"
-          placeholder="Nombre"
-          required
-        />
-        <input
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          className="form-control mb-2"
-          placeholder="Email"
-          required
-        />
-        <input
-          name="phone"
-          value={form.phone}
-          onChange={handleChange}
-          className="form-control mb-2"
-          placeholder="Teléfono"
-          required
-        />
-        <input
-          name="address"
-          value={form.address}
-          onChange={handleChange}
-          className="form-control mb-3"
-          placeholder="Dirección"
-        />
-        <button type="submit" className="btn btn-success w-100">
-          {id ? "Actualizar" : "Crear"}
-        </button>
-      </form>
+    <div className="d-flex flex-column min-vh-100">
+      
+      <NavBar />
+
+      
+      <main className="container my-4 flex-grow-1">
+        <h2 className="text-center mb-3">
+          {id ? "Editar Contacto" : "Agregar Contacto"}
+        </h2>
+
+        <h5 className="text-center text-muted mb-4">
+          Agenda seleccionada:{" "}
+          <span className="fw-bold">{state.selectedSlug || "ninguna"}</span>
+        </h5>
+
+        <form
+          onSubmit={handleSubmit}
+          className="mx-auto"
+          style={{ maxWidth: "400px" }}
+        >
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            className="form-control mb-2"
+            placeholder="Nombre"
+            required
+          />
+          <input
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            className="form-control mb-2"
+            placeholder="Email"
+            required
+          />
+          <input
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
+            className="form-control mb-2"
+            placeholder="Teléfono"
+            required
+          />
+          <input
+            name="address"
+            value={form.address}
+            onChange={handleChange}
+            className="form-control mb-3"
+            placeholder="Dirección"
+          />
+          <button type="submit" className="btn btn-success w-100">
+            {id ? "Actualizar" : "Crear"}
+          </button>
+        </form>
+      </main>
+
+     
       <Footer />
     </div>
   );

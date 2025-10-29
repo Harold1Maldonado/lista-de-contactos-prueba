@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useGlobalReducer } from "../hooks/useGlobalReducer";
+import "./ContactCard.css";
 
 const ContactCard = ({ contact }) => {
   const { actions, state } = useGlobalReducer();

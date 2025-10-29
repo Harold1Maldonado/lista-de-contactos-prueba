@@ -1,23 +1,24 @@
 .footer {
-  background-color: #2f81d4;
+  background-color: var(--secondary-color);
+  color: #fff;
   font-size: 0.95rem;
+  padding: 12px 0;
+  text-align: center;
+  margin-top: auto;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.footer p {
-  margin: 0;
-  color: #f8f9fa;
-}
+  }
 
 .footer button {
-  border: solid 1px red;
+  border: none;
+  background-color: #fff;
+  color: var(--secondary-color);
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.25s ease;
 }
 
-.footer a {
-  color: #0d6efd;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
+.footer button:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  transform: translateY(-2px);
 }
