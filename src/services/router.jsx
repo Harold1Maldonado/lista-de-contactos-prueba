@@ -14,7 +14,7 @@ const router = createBrowserRouter(
       <Route path="edit/:id" element={<AddContact />} />
     </Route>
   ),
-    {
+  {
     basename: "/lista-de-contactos-prueba"
   }
 );

@@ -4,7 +4,6 @@ export const initialState = {
   contactos: [],
 };
 
-// useReducer actualiza el estado global según el tipo de acción recibida
 export function storeReducer(state = initialState, action) {
   switch (action.type) {
     case "setAgendas":
@@ -18,8 +17,7 @@ export function storeReducer(state = initialState, action) {
   }
 }
 
-// Acciones que disparan dispatch() del useReducer
-export const actions = (dispatch) => ({
+export const actions = (dispatch, state) => ({
   getAllAgendas: async () => {
     const res = await fetch("https://playground.4geeks.com/contact/agendas?offset=0&limit=100");
     const data = await res.json();
@@ -51,7 +49,13 @@ export const actions = (dispatch) => ({
       body: JSON.stringify(contact),
     });
   },
-  deleteContact: async (id) => {
-    await fetch(`https://playground.4geeks.com/contact/contacts/${id}`, { method: "DELETE" });
+  deleteContact: async (slug, contactId) => {
+    const res = await fetch(`https://playground.4geeks.com/contact/agendas/${slug}/contacts/${contactId}`, {
+      method: "DELETE",
+    });
+    if (res.ok) {
+      const updated = state.contactos.filter(c => c.id !== contactId);
+      dispatch({ type: "setContactos", payload: updated });
+    }
   },
 });

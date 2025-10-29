@@ -6,8 +6,7 @@ const ContactCard = ({ contact }) => {
 
   const handleDelete = async () => {
     if (!confirm(`¿Eliminar a ${contact.name}?`)) return;
-    await actions.deleteContact(contact.id);
-    await actions.getSingleAgenda(state.selectedSlug);
+    await actions.deleteContact(state.selectedSlug, contact.id);
   };
 
   return (
