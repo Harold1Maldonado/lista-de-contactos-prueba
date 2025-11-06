@@ -78,7 +78,9 @@ const AddContact = () => {
           {id ? "Actualizar" : "Crear"}
         </button>
       </form>
+      <div>
       <Footer />
+      </div>
     </div>
   );
 };
