@@ -11,7 +11,7 @@ const App = () => {
 
   useEffect(() => {
     actions.getAllAgendas();
-  }, [actions]);
+  }, []);
 
   return (
     <div className="d-flex flex-column min-vh-100">
